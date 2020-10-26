@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1 th:text="'Helo ' + ${model.username} + ' - Java Tech'"></h1>
+<p th:text="'Your name is ' + ${model.fullName}"></p>
+
+<ul>
+    <li th:each="user: ${model.allUsers}" th:text="${user}"></li>
+</ul>
+
+<p th:if="${model.isLogged()}">You are a registered user</p>
+
+<p th:if="${model.isAdministrator()}">You are an administrator</p>
+
+<form method="post">
+    Username: <input type="text" name="username"></br>
+    Email: <input type="email" name="email"></br>
+    Password: <input type="password" name="password"></br>
+    Confirm Password: <input type="password" name="confirm"></br>
+    <input type="submit" value="Register"/>
+</form>
+
+</body>
+</html>
